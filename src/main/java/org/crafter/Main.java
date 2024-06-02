@@ -1,17 +1,47 @@
 package org.crafter;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import org.crafter.services.KeyboardService;
+import org.crafter.services.MouseService;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+import java.awt.*;
+
+public class Main {
+    static KeyboardService keyboardService;
+    static MouseService mouseService;
+
+    static {
+        try {
+            keyboardService = new KeyboardService();
+            mouseService = new MouseService();
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+    public Main() {
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread.sleep(1000);
+     handleCraft();
+    }
+    public static void handleCraft() throws InterruptedException {
+        for (int i = 0; i < 16; i++) {
+            mouseService.leftClick();
+            startNewCraft();
+            Thread.sleep(2000);
+            pressKeyBeginMacro();
+            Thread.sleep(40000);
+            mouseService.leftClick();
+        }
+    }
+
+    public static void startNewCraft() throws InterruptedException {
+        keyboardService.pressKeyNewCraft(96);
+    }
+
+    public static void pressKeyBeginMacro() throws InterruptedException {
+        keyboardService.pressKeyNewCraft(70);
     }
 }
