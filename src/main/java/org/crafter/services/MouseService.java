@@ -1,13 +1,13 @@
-package org.crafter.handlers;
+package org.crafter.services;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
 
-public class MouseHandler {
+public class MouseService {
 
     Robot mouseHandlerBot = new Robot();
 
-    public MouseHandler() throws AWTException {
+    public MouseService() throws AWTException {
     }
 
 

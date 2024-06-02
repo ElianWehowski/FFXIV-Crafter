@@ -1,13 +1,12 @@
-package org.crafter.handlers;
+package org.crafter.services;
 
 import java.awt.*;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class KeyboardHandler {
+public class KeyboardService {
 
     Robot keyBoardHandlerBot = new Robot();
 
-    public KeyboardHandler() throws AWTException {
+    public KeyboardService() throws AWTException {
     }
 
 

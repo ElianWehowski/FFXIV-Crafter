@@ -1,18 +1,18 @@
 package org.crafter;
 
-import org.crafter.handlers.KeyboardHandler;
-import org.crafter.handlers.MouseHandler;
+import org.crafter.services.KeyboardService;
+import org.crafter.services.MouseService;
 
 import java.awt.*;
 
 public class Main {
-    static KeyboardHandler keyboardHandler;
-    static MouseHandler mouseHandler;
+    static KeyboardService keyboardService;
+    static MouseService mouseService;
 
     static {
         try {
-            keyboardHandler = new KeyboardHandler();
-            mouseHandler = new MouseHandler();
+            keyboardService = new KeyboardService();
+            mouseService = new MouseService();
 
         } catch (AWTException e) {
             throw new RuntimeException(e);
@@ -27,21 +27,21 @@ public class Main {
      handleCraft();
     }
     public static void handleCraft() throws InterruptedException {
-        for (int i = 0; i < 50; i++) {
-            mouseHandler.leftClick();
+        for (int i = 0; i < 16; i++) {
+            mouseService.leftClick();
             startNewCraft();
             Thread.sleep(2000);
             pressKeyBeginMacro();
             Thread.sleep(40000);
-            mouseHandler.leftClick();
+            mouseService.leftClick();
         }
     }
 
     public static void startNewCraft() throws InterruptedException {
-        keyboardHandler.pressKeyNewCraft(96);
+        keyboardService.pressKeyNewCraft(96);
     }
 
     public static void pressKeyBeginMacro() throws InterruptedException {
-        keyboardHandler.pressKeyNewCraft(70);
+        keyboardService.pressKeyNewCraft(70);
     }
 }
