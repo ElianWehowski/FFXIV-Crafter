@@ -11,7 +11,7 @@ public class MouseService {
     }
 
 
-    public void leftClick() throws InterruptedException {
+    public void leftClick(){
         mouseHandlerBot.delay(100);
         mouseHandlerBot.mouseMove(1681, 660);
         mouseHandlerBot.delay(100);

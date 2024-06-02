@@ -19,10 +19,10 @@ public class Main {
         }
     }
 
-    public Main() throws AWTException {
+    public Main() {
     }
 
-    public static void main(String[] args) throws AWTException, InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         Thread.sleep(1000);
      handleCraft();
     }
