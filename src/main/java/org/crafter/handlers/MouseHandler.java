@@ -1,10 +1,25 @@
 package org.crafter.handlers;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
+import java.awt.event.InputEvent;
 
-public class MouseHandler extends MouseEvent {
-    public MouseHandler(Component source, int id, long when, int modifiers, int x, int y, int clickCount, boolean popupTrigger, int button) {
-        super(source, id, when, modifiers, x, y, clickCount, popupTrigger, button);
+public class MouseHandler {
+
+    Robot mouseHandlerBot = new Robot();
+
+    public MouseHandler() throws AWTException {
     }
+
+
+    public void leftClick() throws InterruptedException {
+        mouseHandlerBot.delay(100);
+        mouseHandlerBot.mouseMove(1681, 660);
+        mouseHandlerBot.delay(100);
+        mouseHandlerBot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        mouseHandlerBot.delay(100);
+        mouseHandlerBot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        mouseHandlerBot.delay(100);
+    }
+
+
 }
